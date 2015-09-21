@@ -1,4 +1,4 @@
-## Similar to the makeVector(X), this function creates a container with get/set methods for matrix and its inverse
+# Similar to the makeVector(X), this function creates a container with get/set methods for matrix and its inverse
 makeCacheMatrix <- function(x = matrix()) {
     i = NULL
     set = function(y) {
@@ -11,8 +11,7 @@ makeCacheMatrix <- function(x = matrix()) {
     list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
 
-
-## function that accepts a makeCacheMatrix object and stores its inverse in cache
+# function that accepts a makeCacheMatrix object and stores its inverse in cache
 # prints when values are pulled from cache
 cacheSolve <- function(x, ...) {
     i = x$getinverse()
@@ -21,6 +20,7 @@ cacheSolve <- function(x, ...) {
         return(i)
     }
     data = x$get()
+    #uses the solve() function to obtain inverse
     i = solve(data)
     x$setinv(i)
     i
